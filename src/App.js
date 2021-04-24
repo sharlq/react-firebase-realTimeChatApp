@@ -1,7 +1,8 @@
 import React, {useState,useEffect} from "react"
-import {Button} from "@material-ui/core"
+import {Button,Card,CardContent,Typography} from "@material-ui/core"
 import Channel from './components/channel'
 import { auth,db } from "./firebase";
+import firebase from "firebase/app"
 
 
 
@@ -9,7 +10,7 @@ function App() {
   const [user,setUser] = useState(()=>auth.currentUser);
   const [initializing,setInitializing] = useState(true);
 
-  
+
   useEffect(()=>{
   const unsubscribe = auth.onAuthStateChanged(user => {
     if(user){
@@ -27,7 +28,7 @@ function App() {
 
   const signInWithGoogle = async () =>{
     // Retrive Google provider object
-    const provider = new auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
     //set language to the defult
     auth.useDeviceLanguage();
     //start sign in process
@@ -48,14 +49,15 @@ const signOut = async () =>{
 
   if (initializing) return 'Loading...'
   return (
-    <div>
+    <Card className="card">
+      <CardContent>
     {user ? (<>
     <Button variant="contained" color="primary" onClick={signOut}>Sign Out</Button>
     <Channel user={user} db={db}/>
     </>
     ): (<Button variant="contained" color="primary" onClick={signInWithGoogle}>Sign in</Button>)}
-    
-    </div>
+    </CardContent>
+    </Card>
   );
 }
 
