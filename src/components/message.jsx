@@ -1,6 +1,6 @@
 import React from 'react'
 import {formatRelative} from 'date-fns'
-
+import {Paper} from '@material-ui/core';
 const Message = ({
     createdAt = null,
     text="",
@@ -8,17 +8,19 @@ const Message = ({
     photoURL="",
 }) => {
     return (
-        <div>
+        <div  className="message">
             {photoURL ? 
-            (<img src={photoURL} alt="Avatar" width={45} hight={45}/>)
+            (<img src={photoURL} alt="Avatar" className="message-img"/>)
             :
             null}
-            {displayName? <p>{displayName}</p>:null}
+            <Paper elevation={3} className="message-paper">
+            {displayName? <p className="message-name">{displayName}</p>:null}
+            <p className="message-text">{text}</p>
             {createdAt?.seconds ? 
-            (<span>{formatRelative(new Date(createdAt.seconds * 1000), new Date())}</span>)
+            (<spain className="message-time">{formatRelative(new Date(createdAt.seconds * 1000), new Date())}</spain>)
             :
             null}
-            <p>{text}</p>
+            </Paper>
         </div>
     )
 }
