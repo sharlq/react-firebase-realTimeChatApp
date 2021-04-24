@@ -36,6 +36,48 @@
 }
 
 .card{
+    margin: 5vh auto 0 auto;
+    width: 800px;
     height: 800px;
     overflow:scroll !important ;
+}
+.header{
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, .3); 
+    height: 50px;
+    position: fixed;
+    width:800px;
+    padding: 5px 0;
+    .singOut-btn{
+        margin: 5px  0 auto 0;
+        position: absolute;
+        right: 10px;
+    }
+    .title{
+        margin: 8px 10px 0 10px;
+    }
+}
+.messageForm{
+   
+.MuiOutlinedInput-input {
+    padding: 10px 14px !important;
+}
+.MuiFormControl-root{
+    width: 655px !important;
+}
+}
+::-webkit-scrollbar{
+    display: none ;
+}
+::-webkit-scrollbar-track{
+    display: none ;
+    visibility: hidden;
+    border-radius: 50% !important;
+}
+::-webkit-scrollbar:hover{
+    visibility:visible !important ;
+}
+::-webkit-resizer{
+    display: none;
 }
