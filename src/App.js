@@ -50,13 +50,16 @@ const signOut = async () =>{
   if (initializing) return 'Loading...'
   return (
     <Card className="card">
-      <CardContent>
+     
     {user ? (<>
-    <Button variant="contained" color="primary" onClick={signOut}>Sign Out</Button>
+    <div className="header">
+    <Typography className="title" variant="h5" className="title">welcome to <strong>My Chat</strong> </Typography>
+    <Button variant="contained" className="singOut-btn" color="primary" onClick={signOut}>Sign Out</Button>
+    </div>
     <Channel user={user} db={db}/>
     </>
-    ): (<Button variant="contained" color="primary" onClick={signInWithGoogle}>Sign in</Button>)}
-    </CardContent>
+    ): (
+    <Button variant="contained"  color="primary" onClick={signInWithGoogle}>Sign in</Button>)}
     </Card>
   );
 }
