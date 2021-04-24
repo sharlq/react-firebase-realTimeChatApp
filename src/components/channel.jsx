@@ -6,6 +6,7 @@ const Channel = ({user = null, db = null}) => {
     const [messages,setMessages] = useState([]);
     const [newMessage,setNewMessage]=useState();
     const {uid , displayName, photoURL} = user;
+
     useEffect(() => {
        if(db){
        const unsubscribe = db
@@ -26,7 +27,6 @@ const Channel = ({user = null, db = null}) => {
        });
        return unsubscribe;
     }
-    
     }, [db])
 
 
@@ -47,7 +47,8 @@ const Channel = ({user = null, db = null}) => {
         }
         setNewMessage("")
     }
-    console.log(messages)
+
+    
     return (
         <>
         <ul>
